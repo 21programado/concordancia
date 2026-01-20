@@ -2,12 +2,12 @@
   "name": "Concordancia NT Griego",
   "short_name": "Concordancia",
   "description": "Concordancia del Nuevo Testamento Griego con búsqueda estricta de diacríticos",
-  "start_url": "/",
+  "start_url": "/concordancia/",
   "display": "standalone",
   "background_color": "#081A4A",
   "theme_color": "#081A4A",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "scope": "/concordancia/",
   "lang": "es",
   "dir": "ltr",
   "icons": [
@@ -59,4 +59,5 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false
+
 }
