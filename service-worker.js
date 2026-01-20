@@ -1,6 +1,6 @@
 /* service-worker.js - Service Worker para PWA */
 
-const CACHE_NAME = 'concordancia-v1.0.0';
+const CACHE_NAME = 'concordancia-v1.0.1';
 const STATIC_CACHE = 'static-v1';
 const DYNAMIC_CACHE = 'dynamic-v1';
 
@@ -127,4 +127,5 @@ self.addEventListener('sync', (event) => {
       Promise.resolve()
     );
   }
+
 });
