@@ -1,8 +1,8 @@
 /* service-worker.js - Service Worker para PWA */
 
-const CACHE_NAME = 'concordancia-v1.0.2';
-const STATIC_CACHE = 'static-v2';
-const DYNAMIC_CACHE = 'dynamic-v2';
+const CACHE_NAME = 'concordancia-v1.0.3';
+const STATIC_CACHE = 'static-v3';
+const DYNAMIC_CACHE = 'dynamic-v3';
 
 // Archivos que se cachean al instalar
 const STATIC_ASSETS = [
@@ -129,4 +129,5 @@ self.addEventListener('sync', (event) => {
   }
 
 });
+
 
