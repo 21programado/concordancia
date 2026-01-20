@@ -246,4 +246,5 @@ function sortConcordanceResults(results) {
         
         return parseInt(verseA) - parseInt(verseB);
     });
+
 }
