@@ -1,7 +1,7 @@
 /* app.js - Lógica principal de la PWA */
 
 // ⚙️ CONFIGURACIÓN - CAMBIA ESTA URL POR LA DE TU APPS SCRIPT
-const API_ENDPOINT = '';
+const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbye9VUilZtU6-HlWiaHDb_I8MNXpox85_lEAAMYFRuLoPzQe_d2izFMwkeWdqpd5Mkm/exec';
 
 // Mapeo de orden bíblico
 const BIBLE_ORDER_MAP = {
@@ -248,5 +248,6 @@ function sortConcordanceResults(results) {
     });
 
 }
+
 
 
