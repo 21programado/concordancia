@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#081A4A">
+    <meta name="description" content="Concordancia del Nuevo Testamento Griego - Búsqueda estricta con diacríticos">
+    
+    <title>Concordancia NT Griego</title>
+    
+    <!-- Manifest para PWA -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#081A4A',
+                        'secondary-light': '#EBEDF2',
+                        'accent-blue': '#1D4ED8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary-dark font-sans min-h-screen p-4 sm:p-8">
+
+    <!-- Indicador de instalación -->
+    <div id="install-prompt" class="hidden fixed top-4 right-4 bg-accent-blue text-white px-4 py-3 rounded-lg shadow-lg z-50 max-w-sm">
+        <p class="text-sm mb-2">¿Instalar esta app en tu dispositivo?</p>
+        <div class="flex gap-2">
+            <button id="install-button" class="bg-white text-accent-blue px-3 py-1 rounded text-sm font-bold">
+                Instalar
+            </button>
+            <button id="dismiss-install" class="bg-transparent border border-white px-3 py-1 rounded text-sm">
+                Ahora no
+            </button>
+        </div>
+    </div>
+
+    <!-- Indicador de conexión -->
+    <div id="offline-indicator" class="hidden fixed top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50">
+        <p class="text-sm">📡 Sin conexión</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+
+        <header class="text-center mb-6">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-secondary-light mb-2">
+                Concordancia del Nuevo Testamento Griego
+            </h1>
+            <p class="text-secondary-light/70">Búsqueda estricta con signos diacríticos</p>
+        </header>
+
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow-2xl">
+
+            <div class="mb-6">
+                <div class="grid grid-cols-1 gap-4 items-end">
+                    
+                    <div>
+                        <label for="search-input" class="block text-sm font-medium text-secondary-light mb-1">
+                            Ingresar palabra griega
+                        </label>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            placeholder="Pega la palabra aquí..."
+                            class="w-full p-3 border border-secondary-light/30 rounded-lg shadow-sm focus:ring-accent-blue focus:border-accent-blue transition duration-150 ease-in-out bg-primary-dark text-secondary-light text-xl font-greek"
+                            autocomplete="off"
+                            autocorrect="off"
+                            spellcheck="false">
+                    </div>
+
+                </div>
+
+                <button 
+                    id="search-button"
+                    class="mt-4 w-full py-3 px-4 bg-accent-blue text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition duration-150 ease-in-out disabled:opacity-50 transform active:scale-95">
+                    Buscar Concordancia
+                </button>
+            </div>
+
+            <div class="bg-primary-dark/70 p-6 rounded-xl shadow-inner border border-secondary-light/20">
+                <h2 id="results-title" class="text-xl font-bold text-secondary-light mb-4 border-b border-secondary-light/20 pb-2">
+                    <span class="text-secondary-light/50">Resultados de la Concordancia</span>
+                </h2>
+                
+                <p id="total-results" class="text-sm font-medium text-secondary-light/70 mb-4"></p>
+
+                <div id="concordance-list" class="scrollable-list flex items-start justify-center text-center">
+                    <p class="text-secondary-light/50 mt-8">La concordancia mostrada es exacta para la palabra ingresada.</p>
+                </div>
+                
+                <div id="loading-indicator" class="hidden text-center mt-4">
+                    <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent text-accent-blue" role="status">
+                        <span class="sr-only">Cargando...</span>
+                    </div>
+                    <p class="text-secondary-light/70 mt-2">Buscando en la base de datos...</p>
+                </div>
+
+                <p id="error-message" class="text-red-400 font-bold text-center mt-4 hidden"></p>
+            </div>
+
+        </div>
+
+        <footer class="text-center mt-8 text-secondary-light/50 text-sm">
+            <p>Versión PWA 1.0 | Datos privados en Google Drive</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+
+</body>
+</html>

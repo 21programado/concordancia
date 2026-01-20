@@ -1,0 +1,152 @@
+/* styles.css - Estilos personalizados para la PWA */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #081A4A;
+    color: #EBEDF2;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.font-greek {
+    font-family: 'Times New Roman', 'Noto Serif', serif;
+    font-style: normal;
+}
+
+.concordance-entry {
+    border-bottom: 1px solid rgba(235, 237, 242, 0.1);
+    padding: 12px 0;
+    transition: background-color 0.2s ease;
+}
+
+.concordance-entry:hover {
+    background-color: rgba(235, 237, 242, 0.05);
+}
+
+.concordance-entry:last-child {
+    border-bottom: none;
+}
+
+.scrollable-list {
+    max-height: 500px;
+    overflow-y: auto;
+    min-height: 150px;
+}
+
+/* Scrollbar personalizado */
+.scrollable-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollable-list::-webkit-scrollbar-track {
+    background: rgba(235, 237, 242, 0.1);
+    border-radius: 10px;
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+    background: rgba(29, 78, 216, 0.5);
+    border-radius: 10px;
+}
+
+.scrollable-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(29, 78, 216, 0.8);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#install-prompt {
+    animation: fadeIn 0.3s ease-out;
+}
+
+#offline-indicator {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Mejoras para touch en móviles */
+button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Soporte para modo oscuro nativo */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #081A4A;
+    }
+}
+
+/* Optimización para pantallas pequeñas */
+@media (max-width: 640px) {
+    .scrollable-list {
+        max-height: 400px;
+    }
+    
+    .concordance-entry {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .concordance-entry span:last-child {
+        margin-left: 0 !important;
+    }
+}
+
+/* Loading spinner mejorado */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Accesibilidad */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible para navegación por teclado */
+input:focus-visible,
+button:focus-visible {
+    outline: 2px solid #1D4ED8;
+    outline-offset: 2px;
+}
+
+/* Prevenir zoom en iOS al hacer focus en inputs */
+@supports (-webkit-touch-callout: none) {
+    input {
+        font-size: 16px !important;
+    }
+}
